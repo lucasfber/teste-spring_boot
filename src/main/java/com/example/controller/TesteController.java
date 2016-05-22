@@ -17,29 +17,14 @@ public class TesteController {
 	ProdutoRepository rep;
 	
 	@RequestMapping("/")
-	public String hello(){
-		Produto p = new Produto();
-		p.setNome("P1");
-		p.setPreco(3.40);
-		
-		Produto p2 = new Produto();
-		p2.setNome("P2");
-		p2.setPreco(24.30);
-		
-		Produto p3 = new Produto();
-		p3.setNome("PX");
-		p3.setPreco(54.20);
-		
-		rep.save(p);
-		rep.save(p2);
-		rep.save(p3);
-		
-		Logger log = Logger.getRootLogger();
-		
-		log.info("--------- Info Produtos ---------");
-		for(Produto prod : rep.findAll())
-			log.info(prod.getNome() + " " + prod.getPreco() + " " + prod.getId());
+	public String index(){
 		
 		return "index";
+	}
+	
+	@RequestMapping("/hello")
+	public String hello(){
+		
+		return "hello";
 	}
 }
